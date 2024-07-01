@@ -1,8 +1,7 @@
-import 'package:get/state_manager.dart';
+import 'package:get/get.dart';
 import 'package:mobile_project/app/data/models/sp_model/user_model.dart';
 
-class TestController extends GetxController {
-  
+class HomeController extends GetxController {
   UserModel getUser() {
     return UserModel(
       id: '12',
