@@ -3,9 +3,9 @@ import 'package:mobile_project/app/controllers/sp_controller/home_controller.dar
 import 'package:mobile_project/app/controllers/sp_controller/music_page_controller.dart';
 import 'package:mobile_project/app/data/models/sp_model/music_model.dart';
 import 'package:mobile_project/app/data/models/sp_model/user_model.dart';
-import 'package:mobile_project/app/ui/screens/music/music_card.dart';
-import 'package:mobile_project/app/ui/screens/music/rounded_row.dart';
-import 'package:mobile_project/app/ui/screens/music/row.dart';
+import 'package:mobile_project/app/ui/screens/music/widgets/music_card.dart';
+import 'package:mobile_project/app/ui/screens/music/widgets/rounded_row.dart';
+import 'package:mobile_project/app/ui/screens/music/widgets/row.dart';
 
 class MusicPage extends StatelessWidget {
   const MusicPage({super.key});
@@ -16,7 +16,6 @@ class MusicPage extends StatelessWidget {
     final List<MusicModel> music = MusicPageController().getMusic();
     final List<MusicCardModel> cardContents =
         MusicPageController().getMusicCardContents();
-
     return SingleChildScrollView(
       physics: const BouncingScrollPhysics(),
       scrollDirection: Axis.vertical,

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile_project/app/controllers/sp_controller/music_page_controller.dart';
 import 'package:mobile_project/app/data/models/sp_model/music_model.dart';
-import 'package:mobile_project/app/ui/screens/music/row.dart';
+import 'package:mobile_project/app/ui/screens/music/widgets/row.dart';
 
 class MusicDetail extends StatelessWidget {
   const MusicDetail({super.key});
@@ -16,7 +16,7 @@ class MusicDetail extends StatelessWidget {
         physics: const BouncingScrollPhysics(),
         child: Container(
           padding: const EdgeInsets.only(
-            top: 50,
+            top: 48,
             left: 16,
             right: 16,
             bottom: 8,
