@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:mobile_project/app/ui/screens/music/music_detail.dart';
 
 class MusicRow extends StatelessWidget {
   final String heading;
@@ -24,8 +26,8 @@ class MusicRow extends StatelessWidget {
           child: Row(
             children: [
               _buildAlbum(
-                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLgtkWXX_ymNViko5-0mr72PDaEGavJT_Ohw&s',
-                  'hololive IDOL PROJECT, Ninomae Ina\'nis, Mori Calliope'),
+                  'https://hololive.hololivepro.com/wp-content/uploads/2021/08/ina_violet_jk-e1661929568573.png',
+                  'VIOLET'),
               const SizedBox(width: 12),
               _buildAlbum(
                   'https://yt3.googleusercontent.com/VaqxUXZY8JO16FXLu2wVKseh977ylo1hEwwo1qdyjPu1HXAix5CdUhHKmPahn0TQLeKbRvh2KQ=s160-c-k-c0x00ffffff-no-rj',
@@ -48,30 +50,35 @@ class MusicRow extends StatelessWidget {
   }
 
   Widget _buildAlbum(String imagePath, String name) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Stack(
-          children: [
-            Image.network(
-              imagePath,
-              width: 160,
-              height: 165,
-              fit: BoxFit.cover,
-            )
-          ],
-        ),
-        const SizedBox(height: 8),
-        SizedBox(
-          width: 160,
-          height: 40,
-          child: Text(
-            name,
-            overflow: TextOverflow.ellipsis,
-            maxLines: 2,
+    return GestureDetector(
+      onTap: () {
+        Get.to(() => const MusicDetail());
+      },
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Stack(
+            children: [
+              Image.network(
+                imagePath,
+                width: 160,
+                height: 165,
+                fit: BoxFit.cover,
+              )
+            ],
           ),
-        )
-      ],
+          const SizedBox(height: 8),
+          SizedBox(
+            width: 160,
+            height: 40,
+            child: Text(
+              name,
+              overflow: TextOverflow.ellipsis,
+              maxLines: 2,
+            ),
+          )
+        ],
+      ),
     );
   }
 }
