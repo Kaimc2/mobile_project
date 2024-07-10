@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:mobile_project/app/data/models/sp_model/music_model.dart';
+import 'package:mobile_project/app/ui/screens/music/music_detail.dart';
 
 class MusicRow extends StatelessWidget {
   final String heading;
+  final List<MusicModel> music;
 
-  const MusicRow({super.key, required this.heading});
+  const MusicRow({super.key, required this.heading, required this.music});
 
   @override
   Widget build(BuildContext context) {
@@ -18,28 +22,21 @@ class MusicRow extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 16),
-        SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          physics: const BouncingScrollPhysics(),
-          child: Row(
-            children: [
-              _buildAlbum(
-                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLgtkWXX_ymNViko5-0mr72PDaEGavJT_Ohw&s',
-                  'hololive IDOL PROJECT, Ninomae Ina\'nis, Mori Calliope'),
-              const SizedBox(width: 12),
-              _buildAlbum(
-                  'https://yt3.googleusercontent.com/VaqxUXZY8JO16FXLu2wVKseh977ylo1hEwwo1qdyjPu1HXAix5CdUhHKmPahn0TQLeKbRvh2KQ=s160-c-k-c0x00ffffff-no-rj',
-                  'LiSA'),
-              const SizedBox(width: 12),
-              _buildAlbum(
-                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLgtkWXX_ymNViko5-0mr72PDaEGavJT_Ohw&s',
-                  'hololive IDOL PROJECT, Ninomae Ina\'nis, Mori Calliope'),
-              const SizedBox(width: 12),
-              _buildAlbum(
-                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLgtkWXX_ymNViko5-0mr72PDaEGavJT_Ohw&s',
-                  'hololive IDOL PROJECT, Ninomae Ina\'nis, Mori Calliope'),
-              const SizedBox(width: 12),
-            ],
+        SizedBox(
+          height: 220,
+          child: ListView.builder(
+            itemCount: music.length,
+            scrollDirection: Axis.horizontal,
+            physics: const BouncingScrollPhysics(),
+            itemBuilder: (_, int index) {
+              return Padding(
+                padding: const EdgeInsets.only(right: 12),
+                child: _buildAlbum(
+                  imagePath: music[index].imageUrl,
+                  name: music[index].name,
+                ),
+              );
+            },
           ),
         ),
         const SizedBox(height: 20),
@@ -47,31 +44,39 @@ class MusicRow extends StatelessWidget {
     );
   }
 
-  Widget _buildAlbum(String imagePath, String name) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Stack(
-          children: [
-            Image.network(
-              imagePath,
-              width: 160,
-              height: 165,
-              fit: BoxFit.cover,
-            )
-          ],
-        ),
-        const SizedBox(height: 8),
-        SizedBox(
-          width: 160,
-          height: 40,
-          child: Text(
-            name,
-            overflow: TextOverflow.ellipsis,
-            maxLines: 2,
+  Widget _buildAlbum({
+    required String imagePath,
+    required String name,
+  }) {
+    return GestureDetector(
+      onTap: () {
+        Get.to(() => const MusicDetail());
+      },
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Stack(
+            children: [
+              Image.network(
+                imagePath,
+                width: 160,
+                height: 165,
+                fit: BoxFit.cover,
+              )
+            ],
           ),
-        )
-      ],
+          const SizedBox(height: 8),
+          SizedBox(
+            width: 160,
+            height: 40,
+            child: Text(
+              name,
+              overflow: TextOverflow.ellipsis,
+              maxLines: 2,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
