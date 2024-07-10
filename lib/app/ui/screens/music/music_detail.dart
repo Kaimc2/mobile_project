@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mobile_project/app/controllers/sp_controller/music_page_controller.dart';
+import 'package:mobile_project/app/data/models/sp_model/music_model.dart';
 import 'package:mobile_project/app/ui/screens/music/row.dart';
 
 class MusicDetail extends StatelessWidget {
@@ -7,6 +9,8 @@ class MusicDetail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final List<MusicModel> music = MusicPageController().getMusic();
+
     return Scaffold(
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
@@ -41,6 +45,9 @@ class MusicDetail extends StatelessWidget {
                     top: 0,
                     left: -10,
                     child: IconButton(
+                      splashColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
                       onPressed: () {
                         Get.offAllNamed('/', arguments: {'tabIndex': 1});
                       },
@@ -125,9 +132,9 @@ class MusicDetail extends StatelessWidget {
               ),
               buildConcertCard(),
               const SizedBox(height: 40),
-              const MusicRow(heading: 'More by Ninomae Ina\'nis'),
+              MusicRow(heading: 'More by Ninomae Ina\'nis', music: music),
               const SizedBox(height: 20),
-              const MusicRow(heading: 'You might also like'),
+              MusicRow(heading: 'You might also like', music: music),
             ],
           ),
         ),
