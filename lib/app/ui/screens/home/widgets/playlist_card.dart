@@ -35,7 +35,8 @@ class PlaylistCard extends StatelessWidget {
               // Allows text to fill the remaining space
               child: Text(
                 name,
-                style: const TextStyle(fontWeight: FontWeight.bold),
+                style:
+                    const TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
               ),
             ),
           ],

@@ -94,6 +94,7 @@ class HomePageBody extends StatelessWidget {
   final List artists;
   const HomePageBody(
       {super.key, required this.playlists, required this.artists});
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
