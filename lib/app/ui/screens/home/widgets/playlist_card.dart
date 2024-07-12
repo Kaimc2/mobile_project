@@ -13,6 +13,11 @@ class PlaylistCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      clipBehavior: Clip.antiAlias,
+      shape: RoundedRectangleBorder(
+        borderRadius:
+            BorderRadius.circular(4), // Smaller value for less roundness
+      ),
       child: IntrinsicHeight(
         // Ensures the row's height matches the tallest widget
         child: Row(
