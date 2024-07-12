@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_project/app/ui/screens/podcast/podcast_card.dart';
+import 'package:mobile_project/app/ui/screens/podcast/widgets/podcast_card.dart';
 
 Map<String, dynamic> podcastContent = {
   'imagePath':
@@ -40,9 +40,10 @@ class PodcastPage extends StatelessWidget {
     return SingleChildScrollView(
       physics: const BouncingScrollPhysics(),
       scrollDirection: Axis.vertical,
-      child: Padding(
-        padding: const EdgeInsets.only(left: 14),
+      child: SizedBox(
+        width: double.maxFinite,
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             for (var content in podcastContents)
               PodcastCard(

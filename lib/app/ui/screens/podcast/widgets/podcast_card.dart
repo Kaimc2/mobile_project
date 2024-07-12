@@ -23,7 +23,7 @@ class PodcastCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(right: 14, bottom: 14, top: 14),
+      padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 0),
       child: Container(
         width: 400,
         height: 475,

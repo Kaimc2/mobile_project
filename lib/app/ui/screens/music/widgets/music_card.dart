@@ -5,15 +5,18 @@ class MusicCard extends StatelessWidget {
   final String mixImagePath;
   final String name;
   final String description;
+  final String? category;
   final String? preview;
 
-  const MusicCard(
-      {super.key,
-      required this.bgImagePath,
-      required this.mixImagePath,
-      required this.name,
-      required this.description,
-      this.preview});
+  const MusicCard({
+    super.key,
+    required this.bgImagePath,
+    required this.mixImagePath,
+    required this.name,
+    required this.description,
+    this.category,
+    this.preview,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -95,7 +98,7 @@ class MusicCard extends StatelessWidget {
                             fontWeight: FontWeight.bold),
                       ),
                       Text(
-                        'Playlist · Spotify',
+                        category ?? 'Playlist · Spotify',
                         style: TextStyle(
                           color: Colors.grey[300],
                         ),
