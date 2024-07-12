@@ -32,6 +32,7 @@ class _MusicDetailState extends State<MusicDetail> {
 
     return Scaffold(
       body: Container(
+        height: MediaQuery.of(context).size.height,
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [
@@ -42,6 +43,7 @@ class _MusicDetailState extends State<MusicDetail> {
             ],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
+            stops: const [0.0, 0.2, 1.0, 1.0],
           ),
         ),
         child: CustomScrollView(
@@ -50,8 +52,9 @@ class _MusicDetailState extends State<MusicDetail> {
           slivers: [
             SliverAppBar(
               backgroundColor: _isAppBarCollapsed
-                  ? const Color(0x00121212).withOpacity(1)
+                  ? const Color(0x002A2929).withOpacity(1)
                   : Colors.transparent,
+              surfaceTintColor: Colors.transparent,
               pinned: true,
               leading: IconButton(
                 hoverColor: Colors.transparent,
@@ -82,9 +85,13 @@ class _MusicDetailState extends State<MusicDetail> {
                     centerTitle: true,
                     title: percentage > 0.5
                         ? Center(
-                            child: Image.network(
-                              'https://hololive.hololivepro.com/wp-content/uploads/2021/08/ina_violet_jk-e1661929568573.png',
-                              width: 270,
+                            child: AnimatedOpacity(
+                              duration: const Duration(milliseconds: 200),
+                              opacity: percentage,
+                              child: Image.network(
+                                'https://hololive.hololivepro.com/wp-content/uploads/2021/08/ina_violet_jk-e1661929568573.png',
+                                width: 270,
+                              ),
                             ),
                           )
                         : const Text(
