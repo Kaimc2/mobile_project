@@ -8,7 +8,6 @@ import 'package:mobile_project/app/ui/screens/music/music_page.dart';
 import 'package:mobile_project/app/ui/screens/home/widgets/playlist_card.dart';
 import 'package:mobile_project/app/ui/screens/podcast/podcast_page.dart';
 import 'package:mobile_project/app/data/models/sp_model/playlist_model.dart';
-import 'package:mobile_project/app/ui/screens/home/widgets/artist.dart';
 import 'package:mobile_project/app/data/models/sp_model/artist_model.dart';
 
 class HomePage extends GetView<HomeController> {
