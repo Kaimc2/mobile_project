@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile_project/app/controllers/sp_controller/home_controller.dart';
 import 'package:mobile_project/app/data/models/sp_model/user_model.dart';
+import 'package:mobile_project/app/ui/screens/home/widgets/favorite_playlist.dart';
+import 'package:mobile_project/app/ui/screens/home/widgets/popular_artists.dart';
 import 'package:mobile_project/app/ui/screens/music/music_page.dart';
 import 'package:mobile_project/app/ui/screens/home/widgets/playlist_card.dart';
 import 'package:mobile_project/app/ui/screens/podcast/podcast_page.dart';
 import 'package:mobile_project/app/data/models/sp_model/playlist_model.dart';
+import 'package:mobile_project/app/data/models/sp_model/artist_model.dart';
 
 class HomePage extends GetView<HomeController> {
   const HomePage({super.key});
@@ -14,6 +17,7 @@ class HomePage extends GetView<HomeController> {
   Widget build(BuildContext context) {
     final List<PlaylistModel> playlists = controller.getPlaylists();
     final UserModel user = controller.getUser();
+    final List<ArtistModel> artists = controller.getArtists();
     final HomeController homeController =
         Get.put(HomeController(), permanent: false);
 
@@ -47,6 +51,7 @@ class HomePage extends GetView<HomeController> {
             children: [
               HomePageBody(
                 playlists: playlists,
+                artists: artists,
               ),
               const MusicPage(),
               const PodcastPage(),
@@ -85,7 +90,10 @@ class HomePage extends GetView<HomeController> {
 
 class HomePageBody extends StatelessWidget {
   final List playlists;
-  const HomePageBody({super.key, required this.playlists});
+  final List artists;
+  const HomePageBody(
+      {super.key, required this.playlists, required this.artists});
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -94,28 +102,8 @@ class HomePageBody extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          GridView.builder(
-            padding: const EdgeInsets.all(10),
-            shrinkWrap:
-                true, // Needed to use GridView inside SingleChildScrollView
-            physics:
-                const NeverScrollableScrollPhysics(), // To prevent grid view from scrolling
-            itemCount: playlists.length,
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2, // Number of columns
-              crossAxisSpacing: 2, // Horizontal space between cards
-              mainAxisSpacing: 2, // Vertical space between cards
-              childAspectRatio:
-                  2.9, // Adjust this value to change the card aspect ratio
-            ),
-            itemBuilder: (context, index) {
-              var playlist = playlists[index];
-              return PlaylistCard(
-                imageUrl: playlist.imageUrl,
-                name: playlist.name,
-              );
-            },
-          ),
+          FavoritePlaylist(playlists: playlists),
+          PopularArtists(artists: artists),
         ],
       ),
     );
