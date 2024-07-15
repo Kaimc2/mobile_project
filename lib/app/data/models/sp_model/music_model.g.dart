@@ -11,6 +11,8 @@ MusicModel _$MusicModelFromJson(Map<String, dynamic> json) => MusicModel(
       name: json['name'] as String,
       imageUrl: json['imageUrl'] as String,
       subtitle: json['subtitle'] as String?,
+      author: json['author'] as String?,
+      type: json['type'] as String?,
     );
 
 Map<String, dynamic> _$MusicModelToJson(MusicModel instance) =>
@@ -19,6 +21,8 @@ Map<String, dynamic> _$MusicModelToJson(MusicModel instance) =>
       'name': instance.name,
       'imageUrl': instance.imageUrl,
       'subtitle': instance.subtitle,
+      'author': instance.author,
+      'type': instance.type,
     };
 
 MusicCardModel _$MusicCardModelFromJson(Map<String, dynamic> json) =>
