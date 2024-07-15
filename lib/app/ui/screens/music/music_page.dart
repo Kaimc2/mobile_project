@@ -24,9 +24,9 @@ class MusicPage extends StatelessWidget {
         child: Column(
           children: [
             const MusicRoundedRow(heading: 'Popular artists'),
-            MusicRow(heading: 'Made for ${user.name}', music: music),
-            MusicRow(heading: 'Popular radio', music: music),
-            MusicRow(heading: 'Popular albums', music: music),
+            MusicRowWidget(heading: 'Made for ${user.name}', music: music),
+            MusicRowWidget(heading: 'Popular radio', music: music),
+            MusicRowWidget(heading: 'Popular albums', music: music),
             for (var content in cardContents)
               MusicCard(
                 bgImagePath: content.bgImageUrl,
