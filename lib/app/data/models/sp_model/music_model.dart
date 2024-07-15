@@ -8,12 +8,16 @@ class MusicModel extends BaseModel {
   final String name;
   final String imageUrl;
   final String? subtitle;
+  final String? author;
+  final String? type;
 
   MusicModel({
     required this.id,
     required this.name,
     required this.imageUrl,
     this.subtitle,
+    this.author,
+    this.type,
   });
 
   @override
