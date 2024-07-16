@@ -70,6 +70,15 @@ class HomeController extends GetxController {
     ];
   }
 
+  @override
+  void onInit() {
+    super.onInit();
+    // Retrieve the tab index from arguments if available
+    if (Get.arguments != null && Get.arguments['tabIndex'] != null) {
+      tabIndex.value = Get.arguments['tabIndex'];
+    }
+  }
+
   void changeTabIndex(int index) {
     tabIndex.value = index;
   }

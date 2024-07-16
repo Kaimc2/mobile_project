@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:get/get.dart';
 import 'package:mobile_project/app/data/models/sp_model/music_model.dart';
 
@@ -43,6 +45,16 @@ class MusicPageController extends GetxController {
     ];
   }
 
+  List<MusicModel> generateMusics(int amounts) {
+    List<MusicModel> musicContents = [];
+
+    for (var i = 0; i < amounts; i++) {
+      musicContents.add(getMusic()[Random().nextInt(getMusic().length)]);
+    }
+
+    return musicContents;
+  }
+
   List<MusicCardModel> getMusicCardContents() {
     return [
       MusicCardModel(
@@ -66,5 +78,16 @@ class MusicPageController extends GetxController {
         preview: 'Song Name - Playing or Something IDK',
       ),
     ];
+  }
+
+  List<MusicCardModel> generateMusicCards(int amounts) {
+    List<MusicCardModel> musicCardContents = [];
+
+    for (var i = 0; i < amounts; i++) {
+      musicCardContents.add(getMusicCardContents()[
+          Random().nextInt(getMusicCardContents().length)]);
+    }
+
+    return musicCardContents;
   }
 }

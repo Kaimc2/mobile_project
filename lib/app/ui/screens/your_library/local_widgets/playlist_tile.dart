@@ -18,10 +18,10 @@ class PlaylistTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       onTap: () {
-        print('tile tapped');
+        debugPrint('tile tapped');
       },
       contentPadding: EdgeInsets.zero,
-      leading: Container(
+      leading: SizedBox(
         width: 80,
         height: 80,
         child: ClipRRect(
