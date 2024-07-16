@@ -1,14 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile_project/app/controllers/sp_controller/home_controller.dart';
+import 'package:mobile_project/app/controllers/sp_controller/music_page_controller.dart';
+import 'package:mobile_project/app/controllers/sp_controller/podcast_controller.dart';
+import 'package:mobile_project/app/data/models/sp_model/music_model.dart';
+import 'package:mobile_project/app/data/models/sp_model/podcast_model.dart';
 import 'package:mobile_project/app/data/models/sp_model/user_model.dart';
 import 'package:mobile_project/app/ui/screens/home/widgets/favorite_playlist.dart';
+import 'package:mobile_project/app/ui/screens/home/widgets/podcast_list.dart';
 import 'package:mobile_project/app/ui/screens/home/widgets/popular_artists.dart';
+import 'package:mobile_project/app/ui/screens/home/widgets/recently_played_list.dart';
 import 'package:mobile_project/app/ui/screens/music/music_page.dart';
-// import 'package:mobile_project/app/ui/screens/home/widgets/playlist_card.dart';
+import 'package:mobile_project/app/ui/screens/music/widgets/row.dart';
 import 'package:mobile_project/app/ui/screens/podcast/podcast_page.dart';
 import 'package:mobile_project/app/data/models/sp_model/playlist_model.dart';
 import 'package:mobile_project/app/data/models/sp_model/artist_model.dart';
+import 'package:mobile_project/app/ui/screens/music/row.dart';
 
 class HomePage extends GetView<HomeController> {
   const HomePage({super.key});
@@ -16,8 +23,10 @@ class HomePage extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     final List<PlaylistModel> playlists = controller.getPlaylists();
+    final List<MusicModel> music = MusicPageController().getMusic();
     final UserModel user = controller.getUser();
     final List<ArtistModel> artists = controller.getArtists();
+    final List<PlaylistModel> recentlyPlayedList = controller.getPlaylists();
     final HomeController homeController =
         Get.put(HomeController(), permanent: false);
 
@@ -50,6 +59,9 @@ class HomePage extends GetView<HomeController> {
             index: homeController.tabIndex.value,
             children: [
               HomePageBody(
+                music: music,
+                user: user,
+                recentlyPlayedList: recentlyPlayedList,
                 playlists: playlists,
                 artists: artists,
               ),
@@ -91,8 +103,16 @@ class HomePage extends GetView<HomeController> {
 class HomePageBody extends StatelessWidget {
   final List playlists;
   final List artists;
+  final List recentlyPlayedList;
+  final List<MusicModel> music;
+  final UserModel user;
   const HomePageBody(
-      {super.key, required this.playlists, required this.artists});
+      {super.key,
+      required this.music,
+      required this.user,
+      required this.playlists,
+      required this.artists,
+      required this.recentlyPlayedList});
 
   @override
   Widget build(BuildContext context) {
@@ -104,6 +124,11 @@ class HomePageBody extends StatelessWidget {
         children: [
           FavoritePlaylist(playlists: playlists),
           PopularArtists(artists: artists),
+          const MusicRow(heading: 'Popular albums'),
+          RecentlyPlayedList(recentlyPlayedList: recentlyPlayedList),
+          MusicRowWidget(heading: 'Made for ${user.name}', music: music),
+          const MusicRow(heading: 'Popular radio'),
+          const PodcastList()
         ],
       ),
     );

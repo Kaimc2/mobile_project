@@ -181,9 +181,11 @@ class _MusicDetailState extends State<MusicDetail> {
                     ),
                     buildConcertCard(),
                     const SizedBox(height: 40),
-                    MusicRow(heading: 'More by Ninomae Ina\'nis', music: music),
+                    MusicRowWidget(
+                        heading: 'More by Ninomae Ina\'nis', music: music),
                     const SizedBox(height: 20),
-                    MusicRow(heading: 'You might also like', music: music),
+                    MusicRowWidget(
+                        heading: 'You might also like', music: music),
                   ],
                 ),
               ),

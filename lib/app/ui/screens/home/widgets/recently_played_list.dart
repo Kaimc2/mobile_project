@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_project/app/ui/screens/home/widgets/artist.dart';
+import 'package:mobile_project/app/ui/screens/home/widgets/recently_played.dart';
 
-class PopularArtists extends StatelessWidget {
-  const PopularArtists({
+class RecentlyPlayedList extends StatelessWidget {
+  final List recentlyPlayedList;
+
+  const RecentlyPlayedList({
     super.key,
-    required this.artists,
+    required this.recentlyPlayedList,
   });
-
-  final List artists;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class PopularArtists extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text("Popular artists",
+          const Text("Recently played",
               style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
           const SizedBox(
             height: 4,
@@ -24,16 +24,17 @@ class PopularArtists extends StatelessWidget {
           SizedBox(
             height: 202,
             child: ListView.builder(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.only(top: 8.0, bottom: 8.0, right: 8.0),
               scrollDirection:
                   Axis.horizontal, // Set scroll direction to horizontal
-              itemCount: artists.length, // Use artists list
+              itemCount:
+                  recentlyPlayedList.length, // Use recentlyPlayedList list
               itemBuilder: (context, index) {
-                var artist = artists[index]; // Use artist data
+                var artist = recentlyPlayedList[index]; // Use artist data
                 return Container(
                   margin: const EdgeInsets.only(
                       right: 20), // Add space between items
-                  child: Artist(
+                  child: RecentlyPlayed(
                     imageUrl: artist.imageUrl,
                     name: artist.name,
                   ),

@@ -12,9 +12,10 @@ class HomeController extends GetxController {
       name: 'Tykea',
       email: 'tk@gmail.com',
       photoUrl:
-          'https://scontent.fpnh8-2.fna.fbcdn.net/v/t39.30808-6/308991827_1562995874160099_5357320955659265368_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeHmcbDz_3Ko4YmFeFDvmHcZAAbED9oN7hEABsQP2g3uETQfmXIscbmZCzIv_4QpO7eFGIkgLVYDEznfNT9nt1Ff&_nc_ohc=IL2JIZEPCKgQ7kNvgEcz6MV&_nc_zt=23&_nc_ht=scontent.fpnh8-2.fna&oh=00_AYD1L-WhOun-WnzF5l6CTb8Mhz3hFbpSHo-Kahtl6WAS2w&oe=669321AF',
+          'https://scontent.fpnh11-1.fna.fbcdn.net/v/t39.30808-1/451078650_1973951236397892_1005063722113467197_n.jpg?stp=c187.0.480.480a_dst-jpg_p480x480&_nc_cat=103&ccb=1-7&_nc_sid=0ecb9b&_nc_eui2=AeEuatl-CSVLOmryDROKsBbZWQd-ofwnLuRZB36h_Ccu5GuGTqOInobF63TJ6geqe2Bd16Z12Jlq-foPwezxJson&_nc_ohc=AJPAWJoGn3kQ7kNvgHUJ0QU&_nc_ht=scontent.fpnh11-1.fna&oh=00_AYDL6Aa_28zdSSNS4T07Bmd0zXlDA2qzctxKYmiTarqGNw&oe=669AC0D7',
     );
   }
+
   List<ArtistModel> getArtists() {
     return [
       ArtistModel(
@@ -39,6 +40,7 @@ class HomeController extends GetxController {
               "https://images.ctfassets.net/mrsnpomeucef/3flwsEi4H05T90gyKDVrVn/817cb2fb12e91cbcd607a142539fe3ff/How_to_clear_Spotify_queue.png?w=2880&h=1440"),
     ];
   }
+
   List<PlaylistModel> getPlaylists() {
     return [
       PlaylistModel(
@@ -66,15 +68,6 @@ class HomeController extends GetxController {
             'https://storage.ko-fi.com/cdn/useruploads/post/84610529-483b-49cb-8c64-7e2e468a6c2f_loficoding.jpg',
       ),
     ];
-  }
-
-  @override
-  void onInit() {
-    super.onInit();
-    // Retrieve the tab index from arguments if available
-    if (Get.arguments != null && Get.arguments['tabIndex'] != null) {
-      tabIndex.value = Get.arguments['tabIndex'];
-    }
   }
 
   void changeTabIndex(int index) {
