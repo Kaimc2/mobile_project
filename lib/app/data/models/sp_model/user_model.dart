@@ -6,14 +6,20 @@ part 'user_model.g.dart';
 class UserModel extends BaseModel {
   final String id;
   final String name;
+  final String nameHash;
   final String email;
   final String photoUrl;
+  final String password;
+  final String subscriptionType;
 
   UserModel({
     required this.id,
     required this.name,
     required this.email,
     required this.photoUrl,
+    required this.password,
+    required this.nameHash,
+    required this.subscriptionType,
   });
 
   @override
