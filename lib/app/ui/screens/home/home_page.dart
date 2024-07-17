@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile_project/app/controllers/sp_controller/home_controller.dart';
 import 'package:mobile_project/app/controllers/sp_controller/music_page_controller.dart';
-import 'package:mobile_project/app/controllers/sp_controller/podcast_controller.dart';
 import 'package:mobile_project/app/data/models/sp_model/music_model.dart';
-import 'package:mobile_project/app/data/models/sp_model/podcast_model.dart';
 import 'package:mobile_project/app/data/models/sp_model/user_model.dart';
 import 'package:mobile_project/app/ui/screens/home/widgets/favorite_playlist.dart';
 import 'package:mobile_project/app/ui/screens/home/widgets/podcast_list.dart';
@@ -15,7 +13,6 @@ import 'package:mobile_project/app/ui/screens/music/widgets/row.dart';
 import 'package:mobile_project/app/ui/screens/podcast/podcast_page.dart';
 import 'package:mobile_project/app/data/models/sp_model/playlist_model.dart';
 import 'package:mobile_project/app/data/models/sp_model/artist_model.dart';
-import 'package:mobile_project/app/ui/screens/music/row.dart';
 
 class HomePage extends GetView<HomeController> {
   const HomePage({super.key});
@@ -124,10 +121,11 @@ class HomePageBody extends StatelessWidget {
         children: [
           FavoritePlaylist(playlists: playlists),
           PopularArtists(artists: artists),
-          const MusicRow(heading: 'Popular albums'),
+          MusicRowWidget(heading: 'Popular albums', music: music, fromIndex: 0),
           RecentlyPlayedList(recentlyPlayedList: recentlyPlayedList),
-          MusicRowWidget(heading: 'Made for ${user.name}', music: music),
-          const MusicRow(heading: 'Popular radio'),
+          MusicRowWidget(
+              heading: 'Made for ${user.name}', music: music, fromIndex: 0),
+          MusicRowWidget(heading: 'Popular radio', music: music, fromIndex: 0),
           const PodcastList()
         ],
       ),

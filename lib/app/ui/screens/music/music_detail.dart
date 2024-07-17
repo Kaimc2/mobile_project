@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile_project/app/controllers/sp_controller/music_page_controller.dart';
 import 'package:mobile_project/app/data/models/sp_model/music_model.dart';
-import 'package:mobile_project/app/ui/screens/music/widgets/row.dart';
+import 'package:mobile_project/app/ui/screens/music/row.dart';
 
 class MusicDetail extends StatefulWidget {
-  const MusicDetail({super.key});
+  final int tabIndex;
+
+  const MusicDetail({super.key, required this.tabIndex});
 
   @override
   State<MusicDetail> createState() => _MusicDetailState();
@@ -13,7 +15,9 @@ class MusicDetail extends StatefulWidget {
 
 class _MusicDetailState extends State<MusicDetail> {
   final ScrollController _scrollController = ScrollController();
+  final List<MusicModel> music = MusicPageController().getMusic();
   bool _isAppBarCollapsed = false;
+  late int fromIndex;
 
   @override
   void initState() {
@@ -24,12 +28,11 @@ class _MusicDetailState extends State<MusicDetail> {
             _scrollController.offset > (310 - kToolbarHeight);
       });
     });
+    fromIndex = widget.tabIndex;
   }
 
   @override
   Widget build(BuildContext context) {
-    final List<MusicModel> music = MusicPageController().getMusic();
-
     return Scaffold(
       body: Container(
         height: MediaQuery.of(context).size.height,
@@ -61,7 +64,7 @@ class _MusicDetailState extends State<MusicDetail> {
                 splashColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 onPressed: () {
-                  Get.offAllNamed('/', arguments: {'tabIndex': 1});
+                  Get.offAllNamed('/', arguments: {'tabIndex': fromIndex});
                 },
                 icon: const Icon(
                   Icons.chevron_left_outlined,
@@ -181,11 +184,15 @@ class _MusicDetailState extends State<MusicDetail> {
                     ),
                     buildConcertCard(),
                     const SizedBox(height: 40),
-                    MusicRowWidget(
-                        heading: 'More by Ninomae Ina\'nis', music: music),
+                    MusicRow(
+                        heading: 'More by Ninomae Ina\'nis',
+                        music: music,
+                        fromIndex: 1),
                     const SizedBox(height: 20),
-                    MusicRowWidget(
-                        heading: 'You might also like', music: music),
+                    MusicRow(
+                        heading: 'You might also like',
+                        music: music,
+                        fromIndex: 1),
                   ],
                 ),
               ),

@@ -6,13 +6,19 @@ import 'package:mobile_project/app/ui/screens/music/music_detail.dart';
 class MusicRowWidget extends StatelessWidget {
   final String heading;
   final List<MusicModel> music;
+  final int fromIndex;
 
-  const MusicRowWidget({super.key, required this.heading, required this.music});
+  const MusicRowWidget({
+    super.key,
+    required this.heading,
+    required this.music,
+    required this.fromIndex,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding: const EdgeInsets.only(left: 14.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -53,7 +59,7 @@ class MusicRowWidget extends StatelessWidget {
   }) {
     return GestureDetector(
       onTap: () {
-        Get.to(() => const MusicDetail());
+        Get.to(() => MusicDetail(tabIndex: fromIndex));
       },
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

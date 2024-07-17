@@ -19,25 +19,23 @@ class MusicPage extends StatelessWidget {
     return SingleChildScrollView(
       physics: const BouncingScrollPhysics(),
       scrollDirection: Axis.vertical,
-      child: Padding(
-        padding: const EdgeInsets.only(left: 14),
-        child: Column(
-          children: [
-            const MusicRoundedRow(heading: 'Popular artists'),
-            MusicRowWidget(heading: 'Made for ${user.name}', music: music),
-            MusicRowWidget(heading: 'Popular radio', music: music),
-            MusicRowWidget(heading: 'Popular albums', music: music),
-            for (var content in cardContents)
-              MusicCard(
-                bgImagePath: content.bgImageUrl,
-                mixImagePath: content.mixImageUrl,
-                name: content.name,
-                description: content.description,
-                category: content.category,
-                preview: content.preview,
-              ),
-          ],
-        ),
+      child: Column(
+        children: [
+          const MusicRoundedRow(heading: 'Popular artists'),
+          MusicRowWidget(
+              heading: 'Made for ${user.name}', music: music, fromIndex: 1),
+          MusicRowWidget(heading: 'Popular radio', music: music, fromIndex: 1),
+          MusicRowWidget(heading: 'Popular albums', music: music, fromIndex: 1),
+          for (var content in cardContents)
+            MusicCard(
+              bgImagePath: content.bgImageUrl,
+              mixImagePath: content.mixImageUrl,
+              name: content.name,
+              description: content.description,
+              category: content.category,
+              preview: content.preview,
+            ),
+        ],
       ),
     );
   }
