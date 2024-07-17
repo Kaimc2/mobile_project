@@ -34,7 +34,8 @@ class HomePage extends GetView<HomeController> {
             children: [
               CircleAvatar(
                 backgroundImage: user.photoUrl.isNotEmpty
-                    ? NetworkImage(user.photoUrl)
+                    // ? NetworkImage(user.photoUrl)
+                    ? const AssetImage('assets/images/stella.jpg')
                     : null,
                 child: user.photoUrl.isEmpty
                     ? Text(user.name[0].toUpperCase())
