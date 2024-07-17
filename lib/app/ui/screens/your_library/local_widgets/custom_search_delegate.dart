@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 
 class CustomSearchDelegate extends SearchDelegate {
   @override
+  TextStyle? get searchFieldStyle => const TextStyle(color: Colors.white);
+
+  @override
   ThemeData appBarTheme(BuildContext context) {
     return ThemeData(
       appBarTheme: const AppBarTheme(
@@ -72,6 +75,28 @@ class CustomSearchDelegate extends SearchDelegate {
           style: const TextStyle(color: Colors.white),
         ),
       ),
+    );
+  }
+
+  @override
+  Widget buildSearchField(BuildContext context) {
+    return TextField(
+      controller: TextEditingController(text: query),
+      autofocus: true,
+      textInputAction: TextInputAction.search,
+      decoration: InputDecoration(
+        hintText: 'Search',
+        hintStyle: TextStyle(color: Colors.white70),
+        border: InputBorder.none,
+      ),
+      style: TextStyle(color: Colors.white),
+      onChanged: (value) {
+        query = value;
+      },
+      onSubmitted: (value) {
+        query = value;
+        showResults(context);
+      },
     );
   }
 }
