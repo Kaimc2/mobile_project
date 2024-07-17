@@ -21,7 +21,7 @@ class MusicCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(right: 14, bottom: 14, top: 14),
+      padding: const EdgeInsets.all(14),
       child: SizedBox(
         width: 400,
         height: 480,
@@ -146,7 +146,7 @@ class MusicCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   ConstrainedBox(
-                    constraints: const BoxConstraints(maxWidth: 250),
+                    constraints: const BoxConstraints(maxWidth: 240),
                     child: TextButton(
                       onPressed: () {},
                       style: ButtonStyle(
