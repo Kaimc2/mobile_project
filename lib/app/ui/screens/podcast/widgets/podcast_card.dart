@@ -150,10 +150,10 @@ class PodcastCard extends StatelessWidget {
           child: TextButton(
             onPressed: () {},
             style: ButtonStyle(
-              padding: const MaterialStatePropertyAll(
+              padding: const WidgetStatePropertyAll(
                 EdgeInsets.all(18),
               ),
-              backgroundColor: MaterialStatePropertyAll(
+              backgroundColor: WidgetStatePropertyAll(
                 Colors.black.withOpacity(0.2),
               ),
             ),

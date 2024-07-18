@@ -285,8 +285,8 @@ class _PodcastDetailState extends State<PodcastDetail> {
             TextButton(
               onPressed: () {},
               style: ButtonStyle(
-                padding: const MaterialStatePropertyAll(EdgeInsets.all(16)),
-                backgroundColor: MaterialStatePropertyAll(
+                padding: const WidgetStatePropertyAll(EdgeInsets.all(16)),
+                backgroundColor: WidgetStatePropertyAll(
                     const Color(0x00535353).withOpacity(0.4)),
               ),
               child: const Row(
@@ -311,8 +311,8 @@ class _PodcastDetailState extends State<PodcastDetail> {
             const SizedBox(width: 8),
             TextButton(
               style: ButtonStyle(
-                padding: const MaterialStatePropertyAll(EdgeInsets.all(16)),
-                backgroundColor: MaterialStatePropertyAll(
+                padding: const WidgetStatePropertyAll(EdgeInsets.all(16)),
+                backgroundColor: WidgetStatePropertyAll(
                     const Color(0x00535353).withOpacity(0.4)),
               ),
               onPressed: () {},
@@ -378,7 +378,7 @@ class _PodcastDetailState extends State<PodcastDetail> {
         OutlinedButton(
           onPressed: () {},
           style: const ButtonStyle(
-              padding: MaterialStatePropertyAll(
+              padding: WidgetStatePropertyAll(
             EdgeInsets.symmetric(horizontal: 16, vertical: 16),
           )),
           child: const Text(

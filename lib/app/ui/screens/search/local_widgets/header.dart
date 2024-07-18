@@ -1,23 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_project/app/controllers/sp_controller/user_controller.dart';
+import 'package:mobile_project/app/data/models/sp_model/user_model.dart';
 
 class CustomHeader extends StatelessWidget {
   const CustomHeader({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final UserModel user = UserController().user.value;
+
     return Padding(
-      padding: const EdgeInsets.fromLTRB(15, 15, 8.0, 10),
+      padding: const EdgeInsets.fromLTRB(16, 8, 8.0, 10),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          const Row(
+          Row(
             children: [
               CircleAvatar(
                 radius: 20,
-                backgroundImage: AssetImage('assets/images/stella.jpg'),
+                backgroundImage: user.photoUrl.isNotEmpty
+                    ? NetworkImage(user.photoUrl)
+                    : null,
+                child: user.photoUrl.isEmpty
+                    ? Text(user.name[0].toUpperCase())
+                    : null,
               ),
-              SizedBox(width: 8.0),
-              Text(
+              const SizedBox(width: 16.0),
+              const Text(
                 'Search',
                 style: TextStyle(
                   fontSize: 24.0,

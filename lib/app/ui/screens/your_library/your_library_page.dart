@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mobile_project/app/controllers/sp_controller/user_controller.dart';
 import 'package:mobile_project/app/controllers/sp_controller/your_library_controller.dart';
 import 'package:mobile_project/app/data/models/sp_model/music_model.dart';
+import 'package:mobile_project/app/data/models/sp_model/user_model.dart';
 import 'package:mobile_project/app/ui/screens/your_library/local_widgets/custom_search_delegate.dart';
 import 'package:mobile_project/app/ui/screens/your_library/local_widgets/playlist_card.dart';
 import 'package:mobile_project/app/ui/screens/your_library/local_widgets/playlist_tile.dart';
@@ -75,11 +77,15 @@ class YourLibraryPageState extends State<YourLibraryPage>
   }
 
   Widget buildUserIcon() {
-    return const Padding(
-      padding: EdgeInsets.only(left: 16.0),
+    final UserModel user = UserController().user.value;
+
+    return Padding(
+      padding: const EdgeInsets.only(left: 16.0),
       child: CircleAvatar(
-        backgroundImage: AssetImage('assets/images/stella.jpg'),
         radius: 20,
+        backgroundImage:
+            user.photoUrl.isNotEmpty ? NetworkImage(user.photoUrl) : null,
+        child: user.photoUrl.isEmpty ? Text(user.name[0].toUpperCase()) : null,
       ),
     );
   }
