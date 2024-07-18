@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile_project/app/controllers/sp_controller/home_controller.dart';
 import 'package:mobile_project/app/controllers/sp_controller/music_page_controller.dart';
+import 'package:mobile_project/app/controllers/sp_controller/user_controller.dart';
 import 'package:mobile_project/app/data/models/sp_model/music_model.dart';
 import 'package:mobile_project/app/data/models/sp_model/user_model.dart';
 import 'package:mobile_project/app/ui/screens/home/widgets/favorite_playlist.dart';
@@ -21,7 +22,7 @@ class HomePage extends GetView<HomeController> {
   Widget build(BuildContext context) {
     final List<PlaylistModel> playlists = controller.getPlaylists();
     final List<MusicModel> music = MusicPageController().getMusic();
-    final UserModel user = controller.getUser();
+    final UserModel user = UserController().user.value;
     final List<ArtistModel> artists = controller.getArtists();
     final List<PlaylistModel> recentlyPlayedList = controller.getPlaylists();
     final HomeController homeController =
@@ -79,7 +80,7 @@ class HomePage extends GetView<HomeController> {
           homeController.changeTabIndex(index);
         },
         style: ButtonStyle(
-          backgroundColor: MaterialStatePropertyAll(
+          backgroundColor: WidgetStatePropertyAll(
             homeController.tabIndex.value == index
                 ? const Color(0x001db954).withOpacity(1)
                 : const Color(0x00535353).withOpacity(0.4),
