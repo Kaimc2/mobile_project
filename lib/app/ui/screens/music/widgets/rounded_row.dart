@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_project/app/controllers/sp_controller/home_controller.dart';
+import 'package:mobile_project/app/data/models/sp_model/artist_model.dart';
 
 class MusicRoundedRow extends StatelessWidget {
   final String heading;
@@ -7,6 +9,8 @@ class MusicRoundedRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final List<ArtistModel> artists = HomeController().getArtists();
+
     return Padding(
       padding: const EdgeInsets.only(left: 14.0),
       child: Column(
@@ -20,28 +24,21 @@ class MusicRoundedRow extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 16),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            physics: const BouncingScrollPhysics(),
-            child: Row(
-              children: [
-                _buildArtist(
-                    'https://viberatecdn.blob.core.windows.net/entity/artist/tena-khimphun-xPHrh',
-                    'Tena'),
-                const SizedBox(width: 12),
-                _buildArtist(
-                    'https://viberatecdn.blob.core.windows.net/entity/artist/tena-khimphun-xPHrh',
-                    'Tena'),
-                const SizedBox(width: 12),
-                _buildArtist(
-                    'https://viberatecdn.blob.core.windows.net/entity/artist/tena-khimphun-xPHrh',
-                    'Tena'),
-                const SizedBox(width: 12),
-                _buildArtist(
-                    'https://viberatecdn.blob.core.windows.net/entity/artist/tena-khimphun-xPHrh',
-                    'Tena'),
-                const SizedBox(width: 12),
-              ],
+          SizedBox(
+            height: 220,
+            child: ListView.builder(
+              itemCount: artists.length,
+              scrollDirection: Axis.horizontal,
+              physics: const BouncingScrollPhysics(),
+              itemBuilder: (_, int index) {
+                return Padding(
+                  padding: const EdgeInsets.only(right: 12),
+                  child: _buildArtist(
+                    imagePath: artists[index].imageUrl,
+                    name: artists[index].name,
+                  ),
+                );
+              },
             ),
           ),
           const SizedBox(height: 24),
@@ -50,7 +47,7 @@ class MusicRoundedRow extends StatelessWidget {
     );
   }
 
-  Widget _buildArtist(String imagePath, String name) {
+  Widget _buildArtist({required String imagePath, required String name}) {
     return Column(
       children: [
         CircleAvatar(
