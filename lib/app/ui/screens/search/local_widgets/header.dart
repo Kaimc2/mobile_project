@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:mobile_project/app/controllers/sp_controller/user_controller.dart';
 import 'package:mobile_project/app/data/models/sp_model/user_model.dart';
 
@@ -26,8 +27,8 @@ class CustomHeader extends StatelessWidget {
                     : null,
               ),
               const SizedBox(width: 16.0),
-              const Text(
-                'Search',
+              Text(
+                tr('search'),
                 style: TextStyle(
                   fontSize: 24.0,
                   fontWeight: FontWeight.bold,
