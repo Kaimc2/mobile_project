@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile_project/app/controllers/sp_controller/music_page_controller.dart';
@@ -152,12 +153,12 @@ class _MusicDetailState extends State<MusicDetail> {
                     const SizedBox(height: 12),
                     buildActionBar(),
                     buildInfo(
-                      title: 'Featuring',
+                      title: 'featuring',
                       content:
                           'VIOLET - Twilight ver. · りゅーーっときてきゅーーっ!!! · Kanalumi · and more',
                     ),
                     buildInfo(
-                      title: 'We added',
+                      title: 'we_added',
                       content:
                           'マリン出航!! · Sparks of Joy · Daydream · A New Start · 毒杯スワロウ',
                     ),
@@ -185,14 +186,12 @@ class _MusicDetailState extends State<MusicDetail> {
                     buildConcertCard(),
                     const SizedBox(height: 40),
                     MusicRow(
-                        heading: 'More by Ninomae Ina\'nis',
+                        heading: 'more_by',
+                        artist: 'Ninomae Ina\'nis',
                         music: music,
                         fromIndex: 1),
                     const SizedBox(height: 20),
-                    MusicRow(
-                        heading: 'You might also like',
-                        music: music,
-                        fromIndex: 1),
+                    MusicRow(heading: 'also_like', music: music, fromIndex: 1),
                   ],
                 ),
               ),
@@ -295,7 +294,7 @@ class _MusicDetailState extends State<MusicDetail> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const SizedBox(height: 28),
-        Text(title),
+        Text(tr(title)),
         const SizedBox(height: 16),
         Text(
           content,
@@ -313,9 +312,9 @@ class _MusicDetailState extends State<MusicDetail> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(
-          'Concerts',
-          style: TextStyle(
+        Text(
+          tr('concerts'),
+          style: const TextStyle(
             fontSize: 20,
           ),
         ),
@@ -341,7 +340,7 @@ class _MusicDetailState extends State<MusicDetail> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'On tour',
+                    tr('on_tour'),
                     style: TextStyle(
                       color: const Color(0x00b3b3b3).withOpacity(0.8),
                       fontSize: 12,
@@ -351,7 +350,7 @@ class _MusicDetailState extends State<MusicDetail> {
                   const Text('Ninomae Ina\'nis'),
                   const SizedBox(height: 4),
                   Text(
-                    'See all events',
+                    tr('see_all_events'),
                     style: TextStyle(
                       color: const Color(0x00b3b3b3).withOpacity(0.8),
                       fontSize: 12,

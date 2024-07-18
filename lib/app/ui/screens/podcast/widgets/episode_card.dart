@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class EpisodeCard extends StatelessWidget {
@@ -164,7 +165,7 @@ class EpisodeWithBgCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Latest Episode',
+                      tr('latest_episode'),
                       style: TextStyle(
                           fontSize: 14,
                           color: const Color(0x00b3b3b3).withOpacity(0.8)),

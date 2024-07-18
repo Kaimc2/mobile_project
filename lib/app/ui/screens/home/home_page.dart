@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile_project/app/controllers/sp_controller/home_controller.dart';
@@ -44,9 +45,9 @@ class HomePage extends GetView<HomeController> {
               ButtonBar(
                 children: [
                   const SizedBox(width: 4),
-                  buttonBarItem(homeController, 'All', 0),
-                  buttonBarItem(homeController, 'Music', 1),
-                  buttonBarItem(homeController, 'Podcasts', 2),
+                  buttonBarItem(homeController, 'all', 0),
+                  buttonBarItem(homeController, 'music', 1),
+                  buttonBarItem(homeController, 'podcasts', 2),
                 ],
               )
             ],
@@ -86,7 +87,7 @@ class HomePage extends GetView<HomeController> {
           ),
         ),
         child: Text(
-          text,
+          tr(text),
           style: TextStyle(
             color: homeController.tabIndex.value == index
                 ? Colors.black
@@ -122,11 +123,15 @@ class HomePageBody extends StatelessWidget {
         children: [
           FavoritePlaylist(playlists: playlists),
           PopularArtists(artists: artists),
-          MusicRowWidget(heading: 'Popular albums', music: music, fromIndex: 0),
+          MusicRowWidget(heading: 'popular_albums', music: music, fromIndex: 0),
           RecentlyPlayedList(recentlyPlayedList: recentlyPlayedList),
           MusicRowWidget(
-              heading: 'Made for ${user.name}', music: music, fromIndex: 0),
-          MusicRowWidget(heading: 'Popular radio', music: music, fromIndex: 0),
+            heading: 'made_for ${user.name}',
+            music: music,
+            fromIndex: 0,
+            split: true,
+          ),
+          MusicRowWidget(heading: 'popular_radios', music: music, fromIndex: 0),
           const PodcastList()
         ],
       ),

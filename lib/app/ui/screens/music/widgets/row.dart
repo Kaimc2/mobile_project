@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile_project/app/data/models/sp_model/music_model.dart';
@@ -7,23 +8,34 @@ class MusicRowWidget extends StatelessWidget {
   final String heading;
   final List<MusicModel> music;
   final int fromIndex;
+  final bool split;
 
   const MusicRowWidget({
     super.key,
     required this.heading,
     required this.music,
     required this.fromIndex,
+    this.split = false,
   });
 
   @override
   Widget build(BuildContext context) {
+    var name = '';
+    var leading = '';
+
+    if (split) {
+      var splitText = heading.split(" ");
+      leading = splitText[0];
+      name = splitText[1];
+    }
+
     return Padding(
       padding: const EdgeInsets.only(left: 14.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            heading,
+            split ? '${tr(leading)} $name' : tr(heading),
             style: const TextStyle(
               fontSize: 24,
               fontWeight: FontWeight.bold,
