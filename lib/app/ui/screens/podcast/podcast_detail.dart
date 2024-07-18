@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile_project/app/controllers/sp_controller/podcast_controller.dart';
@@ -40,11 +41,9 @@ class _PodcastDetailState extends State<PodcastDetail> {
         child: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
           child: Container(
-            padding: const EdgeInsets.only(
-              top: 0,
-              left: 16,
-              right: 16,
-              bottom: 8,
+            padding: const EdgeInsets.symmetric(
+              vertical: 8,
+              horizontal: 16,
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -110,7 +109,7 @@ class _PodcastDetailState extends State<PodcastDetail> {
                     ),
                     const SizedBox(width: 4),
                     Text(
-                      '4.9 (37.3k) · Entertainment',
+                      '4.9 (37.3k) · ${tr("entertainment")}',
                       style: TextStyle(
                         color: Colors.grey[300],
                       ),
@@ -124,11 +123,11 @@ class _PodcastDetailState extends State<PodcastDetail> {
                   buttonPadding: const EdgeInsets.only(left: 0),
                   alignment: MainAxisAlignment.start,
                   children: [
-                    _buildButtonItem(text: 'Episodes', index: 0),
+                    _buildButtonItem(text: 'episodes', index: 0),
                     const SizedBox(width: 24),
-                    _buildButtonItem(text: 'About', index: 1),
+                    _buildButtonItem(text: 'about', index: 1),
                     const SizedBox(width: 24),
-                    _buildButtonItem(text: 'More like this', index: 2),
+                    _buildButtonItem(text: 'more_like', index: 2),
                   ],
                 ),
                 const SizedBox(height: 16),
@@ -169,7 +168,7 @@ class _PodcastDetailState extends State<PodcastDetail> {
             ),
           ),
           child: Text(
-            text,
+            tr(text),
             style: const TextStyle(
               color: Colors.white,
               fontSize: 18,
@@ -181,22 +180,22 @@ class _PodcastDetailState extends State<PodcastDetail> {
   }
 
   Column _buildEpisodesList() {
-    return const Column(
+    return Column(
       children: [
         Row(
           children: [
-            Icon(Icons.repeat),
-            SizedBox(width: 8),
+            const Icon(Icons.repeat),
+            const SizedBox(width: 8),
             Text(
-              'All Episodes·Newest',
-              style: TextStyle(fontSize: 16, color: Colors.white),
+              '${tr('all_episodes')} · ${tr('newest')}',
+              style: const TextStyle(fontSize: 16, color: Colors.white),
             ),
           ],
         ),
-        SizedBox(height: 16),
-        EpisodeCard(),
-        EpisodeCard(),
-        EpisodeCard(),
+        const SizedBox(height: 16),
+        const EpisodeCard(),
+        const EpisodeCard(),
+        const EpisodeCard(),
       ],
     );
   }
@@ -248,7 +247,7 @@ class _PodcastDetailState extends State<PodcastDetail> {
                   ),
                   const SizedBox(height: 4),
                   Text(
-                    'Podcast · OfflineTV ',
+                    '${tr('podcasts')} · OfflineTV ',
                     style: TextStyle(
                         color: const Color(0x00b3b3b3).withOpacity(1)),
                   ),
@@ -262,12 +261,12 @@ class _PodcastDetailState extends State<PodcastDetail> {
             style: TextStyle(color: const Color(0x00b3b3b3).withOpacity(0.8)),
           ),
           const SizedBox(height: 12),
-          const Row(
+          Row(
             children: [
-              Icon(Icons.e_mobiledata),
+              const Icon(Icons.e_mobiledata),
               Flexible(
                 child: Text(
-                    'Arts & Entertainment·Entertainment·Games·Video Games'),
+                    '${tr("arts_entertainment")} · ${tr("entertainment")}t · ${tr('games')} · ${tr('video_games')}'),
               ),
             ],
           ),
@@ -316,9 +315,9 @@ class _PodcastDetailState extends State<PodcastDetail> {
                     const Color(0x00535353).withOpacity(0.4)),
               ),
               onPressed: () {},
-              child: const Text(
-                'Entertainment',
-                style: TextStyle(color: Colors.white),
+              child: Text(
+                tr('entertainment'),
+                style: const TextStyle(color: Colors.white),
               ),
             ),
           ],
@@ -327,9 +326,9 @@ class _PodcastDetailState extends State<PodcastDetail> {
         const Text(
             'Trash Taste is the premiere anime podcast exploring anime, manga, and otaku culture with top anime Youtubers: Joey from The Anime Man, Garnt from Gigguk, and Connor from Cdawgva, and occasionally special guests.\n\nFor advertising opportunities please\nemail:PodcastPartnerships@Studio71us.com\n\nWe wanna make the podcast even better, help us learn how we can: https://bit.ly/2EcYbu4\n\nPrivacy Policy:https://www.studio71.com/us/terms-and-conditions-use/#Privacy%20Policy'),
         const SizedBox(height: 24),
-        const Text(
-          'Best place to start',
-          style: TextStyle(fontSize: 20, color: Colors.white),
+        Text(
+          tr('best_start'),
+          style: const TextStyle(fontSize: 20, color: Colors.white),
         ),
         const SizedBox(height: 16),
         const EpisodeWithBgCard(),
@@ -381,9 +380,9 @@ class _PodcastDetailState extends State<PodcastDetail> {
               padding: WidgetStatePropertyAll(
             EdgeInsets.symmetric(horizontal: 16, vertical: 16),
           )),
-          child: const Text(
-            'Following',
-            style: TextStyle(color: Colors.white),
+          child: Text(
+            tr('following'),
+            style: const TextStyle(color: Colors.white),
           ),
         ),
         const SizedBox(width: 16),

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_project/app/controllers/sp_controller/home_controller.dart';
 import 'package:mobile_project/app/data/models/sp_model/artist_model.dart';
@@ -12,12 +13,12 @@ class MusicRoundedRow extends StatelessWidget {
     final List<ArtistModel> artists = HomeController().getArtists();
 
     return Padding(
-      padding: const EdgeInsets.only(left: 14.0),
+      padding: const EdgeInsets.only(left: 14.0, top: 8),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            heading,
+            tr(heading),
             style: const TextStyle(
               fontSize: 24,
               fontWeight: FontWeight.bold,

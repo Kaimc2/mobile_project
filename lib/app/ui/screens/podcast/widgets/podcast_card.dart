@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile_project/app/ui/screens/podcast/podcast_detail.dart';
@@ -121,7 +122,7 @@ class PodcastCard extends StatelessWidget {
               ),
               const SizedBox(height: 8),
               Text(
-                'Episode · $podcastName',
+                '${tr('episodes')} · $podcastName',
                 style: TextStyle(
                   color: const Color(0x00b3b3b3).withOpacity(0.8),
                 ),
@@ -167,7 +168,7 @@ class PodcastCard extends StatelessWidget {
                 const SizedBox(width: 8),
                 Flexible(
                   child: Text(
-                    preview ?? 'Preview episode',
+                    preview ?? tr('preview_episode'),
                     overflow: TextOverflow.fade,
                     softWrap: false,
                     style: TextStyle(

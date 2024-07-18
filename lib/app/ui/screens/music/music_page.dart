@@ -21,11 +21,15 @@ class MusicPage extends StatelessWidget {
       scrollDirection: Axis.vertical,
       child: Column(
         children: [
-          const MusicRoundedRow(heading: 'Popular artists'),
+          const MusicRoundedRow(heading: 'popular_artists'),
           MusicRowWidget(
-              heading: 'Made for ${user.name}', music: music, fromIndex: 1),
-          MusicRowWidget(heading: 'Popular radio', music: music, fromIndex: 1),
-          MusicRowWidget(heading: 'Popular albums', music: music, fromIndex: 1),
+            heading: 'made_for ${user.name}',
+            music: music,
+            fromIndex: 1,
+            split: true,
+          ),
+          MusicRowWidget(heading: 'popular_radios', music: music, fromIndex: 1),
+          MusicRowWidget(heading: 'popular_albums', music: music, fromIndex: 1),
           for (var content in cardContents)
             MusicCard(
               bgImagePath: content.bgImageUrl,

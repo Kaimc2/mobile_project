@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile_project/app/data/models/sp_model/music_model.dart';
@@ -7,12 +8,14 @@ class MusicRow extends StatelessWidget {
   final String heading;
   final List<MusicModel> music;
   final int fromIndex;
+  final String? artist;
 
   const MusicRow({
     super.key,
     required this.heading,
     required this.music,
     required this.fromIndex,
+    this.artist,
   });
 
   @override
@@ -21,7 +24,7 @@ class MusicRow extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          heading,
+          artist != null ? '${tr(heading)} $artist' : tr(heading),
           style: const TextStyle(
             fontSize: 24,
             fontWeight: FontWeight.bold,

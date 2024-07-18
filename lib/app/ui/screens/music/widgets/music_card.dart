@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class MusicCard extends StatelessWidget {
@@ -98,7 +99,7 @@ class MusicCard extends StatelessWidget {
                             fontWeight: FontWeight.bold),
                       ),
                       Text(
-                        category ?? 'Playlist · Spotify',
+                        category ?? '${tr('playlist')} · Spotify',
                         style: TextStyle(
                           color: Colors.grey[300],
                         ),
@@ -166,7 +167,7 @@ class MusicCard extends StatelessWidget {
                           const SizedBox(width: 8),
                           Flexible(
                             child: Text(
-                              preview ?? 'Preview playlist',
+                              preview ?? tr('preview_playlist'),
                               overflow: TextOverflow.fade,
                               softWrap: false,
                               style: const TextStyle(
