@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_project/app/ui/screens/home/widgets/artist.dart';
 
@@ -16,8 +17,10 @@ class PopularArtists extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text("Popular artists",
-              style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
+          Text(
+            tr("popular_artists"),
+            style: const TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+          ),
           const SizedBox(
             height: 4,
           ),
