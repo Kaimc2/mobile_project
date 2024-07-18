@@ -32,5 +32,12 @@
   "latest_episode": "Latest Episode",
   "best_start": "Best place to start",
   "all_episodes": "All Episodes",
-  "newest": "Newest"
+  "newest": "Newest",
+  "explore": "Explore",
+  "search": "Search",
+  "what_do_you_want_to_listen_to?": "What do you want to listen to?",
+  "explore_your_genres": "Explore your genres",
+  "browse_all": "Browse all",
+  "live_events": "Live Events",
+  "made_for_you": "Made For You"
 }

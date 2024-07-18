@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:mobile_project/app/ui/screens/search/local_widgets/crad.dart';
 import 'package:mobile_project/app/ui/screens/search/local_widgets/header.dart';
 import 'package:mobile_project/app/ui/screens/search/local_widgets/history_card.dart';
@@ -27,25 +28,25 @@ class SearchPage extends StatelessWidget {
     ];
     final List<Map<String, dynamic>> browseData = [
       {
-        'title': 'Music',
+        'title': 'music',
         'color': Colors.pink,
         'imageUrl':
             'https://core.sgx.bz/files/s8server/hr/24/07/71598460b75f4642b93f7ccbf3234792.jpg',
       },
       {
-        'title': 'Podcasts',
+        'title': 'podcasts',
         'color': Colors.teal,
         'imageUrl':
             'https://core.sgx.bz/files/s8server/hr/24/07/71598460b75f4642b93f7ccbf3234792.jpg',
       },
       {
-        'title': 'Live Events',
+        'title': 'live_events',
         'color': Colors.purple,
         'imageUrl':
             'https://core.sgx.bz/files/s8server/hr/24/07/71598460b75f4642b93f7ccbf3234792.jpg', // Replace with your image URL or asset path
       },
       {
-        'title': 'Made For You',
+        'title': 'made_for_you',
         'color': Colors.blue,
         'imageUrl':
             'https://core.sgx.bz/files/s8server/hr/24/07/71598460b75f4642b93f7ccbf3234792.jpg', // Replace with your image URL or asset path
@@ -69,7 +70,7 @@ class SearchPage extends StatelessWidget {
                 child: TextField(
                   style: const TextStyle(color: Colors.black),
                   decoration: InputDecoration(
-                    hintText: 'What do you want to listen to?',
+                    hintText: tr('what_do_you_want_to_listen_to?'),
                     prefixIcon: const Icon(Icons.search),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8.0),
@@ -84,8 +85,9 @@ class SearchPage extends StatelessWidget {
               ),
               const SizedBox(height: 16.0),
               // Explore your genres section
-              const Text(
-                'Explore your genres',
+              Text(
+                tr("explore_your_genres")
+                ,
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
@@ -111,8 +113,8 @@ class SearchPage extends StatelessWidget {
               ),
               const SizedBox(height: 16.0),
               // Browse all section
-              const Text(
-                'Browse all',
+              Text(
+                tr('browse_all'),
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
@@ -133,7 +135,7 @@ class SearchPage extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return BrowseCard(
                     // Use BrowseCard class here
-                    title: browseData[index]['title'],
+                    title: tr(browseData[index]['title']),
                     color: browseData[index]['color'],
                     imageUrl: browseData[index]['imageUrl'],
                   );
