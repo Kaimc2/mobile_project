@@ -48,6 +48,7 @@ class SettingsPage extends StatelessWidget {
         ),
         buildListile(
           title: 'Languages',
+          onTap: () => Get.toNamed('/languages'),
         ),
         const DarkModeTile(
           title: 'Dark Mode',
