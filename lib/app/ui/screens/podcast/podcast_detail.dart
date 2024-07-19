@@ -48,6 +48,9 @@ class _PodcastDetailState extends State<PodcastDetail> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                const SizedBox(
+                  height: kToolbarHeight,
+                ),
                 IconButton(
                   padding:
                       const EdgeInsets.symmetric(vertical: 8, horizontal: 0),
@@ -55,7 +58,7 @@ class _PodcastDetailState extends State<PodcastDetail> {
                   splashColor: Colors.transparent,
                   highlightColor: Colors.transparent,
                   onPressed: () {
-                    Get.offAllNamed('/', arguments: {'tabIndex': 2});
+                    Get.back();
                   },
                   icon: const Icon(
                     Icons.chevron_left_outlined,
@@ -77,25 +80,27 @@ class _PodcastDetailState extends State<PodcastDetail> {
                       ),
                     ),
                     const SizedBox(width: 16),
-                    const Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Trash Taste Podcast',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 24,
+                    const Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Trash Taste Podcast',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 24,
+                            ),
                           ),
-                        ),
-                        SizedBox(height: 10),
-                        Text(
-                          'Trash Taste Podcast',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 12,
+                          SizedBox(height: 10),
+                          Text(
+                            'Trash Taste Podcast',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 12,
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ],
                 ),
