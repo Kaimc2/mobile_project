@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile_project/app/controllers/sp_controller/settings_controller.dart';
@@ -26,9 +27,9 @@ class SettingsPage extends StatelessWidget {
   PreferredSizeWidget buildAppBar(BuildContext context) {
     return AppBar(
       backgroundColor: const Color(0xFF212121),
-      title: const Text(
-        'Settings',
-        style: TextStyle(
+      title: Text(
+        tr('title.settings'),
+        style: const TextStyle(
             fontSize: 18.0, fontWeight: FontWeight.bold, color: Colors.white),
       ),
     );
@@ -42,18 +43,18 @@ class SettingsPage extends StatelessWidget {
           name: userController.user.value.name,
         ),
         buildListile(
-          title: 'Account',
+          title: tr('tile.title.account'),
           onTap: () => Get.toNamed('/account'),
         ),
         buildListile(
-          title: 'Languages',
+          title: tr('tile.title.languages'),
           onTap: () => Get.toNamed('/languages'),
         ),
         // const DarkModeTile(
         //   title: 'Dark Mode',
         // ),
         buildListile(
-          title: 'About Us',
+          title: tr('tile.title.about_us'),
           onTap: () => Get.toNamed('/about-us'),
         ),
         const SizedBox(height: 60.0),

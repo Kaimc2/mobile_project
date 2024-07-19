@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile_project/app/controllers/sp_controller/user_controller.dart';
@@ -59,9 +60,9 @@ class YourLibraryPageState extends State<YourLibraryPage>
                 forceMaterialTransparency: true,
                 backgroundColor: Colors.transparent,
                 centerTitle: false,
-                title: const Text(
-                  'Your Library',
-                  style: TextStyle(
+                title: Text(
+                  tr('title.your_library'),
+                  style: const TextStyle(
                     fontSize: 26.0,
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
@@ -131,8 +132,8 @@ class YourLibraryPageState extends State<YourLibraryPage>
                       ListTile(
                         leading:
                             const Icon(Icons.playlist_add, color: Colors.white),
-                        title: const Text('Build Playlist',
-                            style: TextStyle(color: Colors.white)),
+                        title: Text(tr('bottomsheet.build_playlists'),
+                            style: const TextStyle(color: Colors.white)),
                         onTap: () {
                           // Handle build playlist action
                         },
@@ -140,8 +141,8 @@ class YourLibraryPageState extends State<YourLibraryPage>
                       ListTile(
                         leading:
                             const Icon(Icons.merge_type, color: Colors.white),
-                        title: const Text('Blend',
-                            style: TextStyle(color: Colors.white)),
+                        title: Text(tr('bottomsheet.blend'),
+                            style: const TextStyle(color: Colors.white)),
                         onTap: () {
                           // Handle blend action
                         },
@@ -166,13 +167,13 @@ class YourLibraryPageState extends State<YourLibraryPage>
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            buildChip('Playlists'),
+            buildChip(tr('title.playlists')),
             const SizedBox(width: 8.0),
-            buildChip('Artists'),
+            buildChip(tr('title.artists')),
             const SizedBox(width: 8.0),
-            buildChip('Albums'),
+            buildChip(tr('title.albums')),
             const SizedBox(width: 8.0),
-            buildChip('Podcasts'),
+            buildChip(tr('title.podcasts')),
           ],
         ),
       ),
@@ -235,8 +236,7 @@ class YourLibraryPageState extends State<YourLibraryPage>
         child: const Icon(Icons.favorite, color: Colors.white),
       ),
       title: const Text('Liked Songs', style: TextStyle(color: Colors.white)),
-      subtitle:
-          const Text('144 songs', style: TextStyle(color: Colors.white70)),
+      subtitle: const Text('6 songs', style: TextStyle(color: Colors.white70)),
       onTap: () {
         Get.to(() => const LikedSongsPage());
       },
@@ -303,7 +303,7 @@ class YourLibraryPageState extends State<YourLibraryPage>
             const Padding(
               padding: EdgeInsets.symmetric(horizontal: 8.0),
               child: Text(
-                'Playlist - 144 songs',
+                'Playlist - 6 songs',
               ),
             ),
           ],

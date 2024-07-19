@@ -39,5 +39,21 @@
   "explore_your_genres": "Explore your genres",
   "browse_all": "Browse all",
   "live_events": "Live Events",
-  "made_for_you": "Made For You"
+  "made_for_you": "Made For You",
+  "title.settings": "Settings",
+  "title.your_library": "Your Library",
+  "button.recent": "Recent",
+  "title.playlists": "Playlists",
+  "title.artists": "Artists",
+  "title.albums": "Albums",
+  "title.podcasts": "Podcasts",
+  "bottomsheet.build_playlists": "Build Playlist",
+  "bottomsheet.blend": "Blend",
+  "tile.title.account": "Acount",
+  "tile.title.languages": "Langauges",
+  "tile.title.about_us": "About Us",
+  "button.view_profile": "View Profile",
+  "button.log_out": "Log Out",
+  "section.title.lecturers": "Lecturers",
+  "section.title.team_members": "Team Members"
 }

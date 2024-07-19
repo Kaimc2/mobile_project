@@ -39,5 +39,21 @@
   "live_events": "ផ្សាយផ្ទាល់",
   "made_for_you": "សម្រាប់អ្នក",
   "explore": "ស្វែងរក",
-  "search": "ស្វែងរក"
+  "search": "ស្វែងរក",
+  "title.your_library": "បណ្ណាល័យចម្រៀងរបស់អ្នក",
+  "button.recent": "ថ្មី",
+  "title.settings": "ការកំណត់",
+  "title.playlists": "បញ្ជីចម្រៀង",
+  "title.artists": "សិល្បករ",
+  "title.albums": "អាល់ប៊ុម",
+  "title.podcasts": "ផតខាស់",
+  "bottomsheet.build_playlists": "បង្កើតបញ្ជីចម្រៀង",
+  "bottomsheet.blend": "លាយ",
+  "tile.title.account": "គណនី",
+  "tile.title.languages": "ភាសា",
+  "tile.title.about_us": "អំពីពួកយើង",
+  "button.view_profile": "មើលប្រវត្តិរបស់ខ្ញុំ",
+  "button.log_out": "ចាកចេញ",
+  "section.title.lecturers": "សាស្ត្រាចារ្យ",
+  "section.title.team_members": "សមាជិកក្រុម"
 }
