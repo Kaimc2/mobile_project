@@ -22,12 +22,12 @@ class PlaylistTile extends StatelessWidget {
       },
       contentPadding: EdgeInsets.zero,
       leading: SizedBox(
-        width: 80,
-        height: 80,
+        width: 50,
+        height: 50,
         child: ClipRRect(
           child: AspectRatio(
             aspectRatio: 1,
-            child: Image.asset(
+            child: Image.network(
               imageUrl,
               fit: BoxFit.cover,
             ),

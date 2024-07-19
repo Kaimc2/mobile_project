@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:mobile_project/app/controllers/sp_controller/user_controller.dart';
+import 'package:mobile_project/app/data/models/sp_model/user_model.dart';
 import 'package:mobile_project/app/ui/screens/search/local_widgets/crad.dart';
-import 'package:mobile_project/app/ui/screens/search/local_widgets/header.dart';
 import 'package:mobile_project/app/ui/screens/search/local_widgets/history_card.dart';
 
 class SearchPage extends StatelessWidget {
@@ -54,10 +55,7 @@ class SearchPage extends StatelessWidget {
     ];
 
     return Scaffold(
-      appBar: const PreferredSize(
-        preferredSize: Size.fromHeight(70.0),
-        child: CustomHeader(),
-      ),
+      appBar: buildAppbar(context),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -86,9 +84,8 @@ class SearchPage extends StatelessWidget {
               const SizedBox(height: 16.0),
               // Explore your genres section
               Text(
-                tr("explore_your_genres")
-                ,
-                style: TextStyle(
+                tr("explore_your_genres"),
+                style: const TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
@@ -115,7 +112,7 @@ class SearchPage extends StatelessWidget {
               // Browse all section
               Text(
                 tr('browse_all'),
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
                 ),
@@ -145,6 +142,40 @@ class SearchPage extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+
+  PreferredSizeWidget buildAppbar(BuildContext context) {
+    final UserModel user = UserController().user.value;
+
+    return AppBar(
+      centerTitle: false,
+      leading: Padding(
+        padding: const EdgeInsets.only(left: 8.0),
+        child: CircleAvatar(
+          radius: 10,
+          backgroundImage:
+              user.photoUrl.isNotEmpty ? NetworkImage(user.photoUrl) : null,
+          child:
+              user.photoUrl.isEmpty ? Text(user.name[0].toUpperCase()) : null,
+        ),
+      ),
+      title: Text(
+        tr('search'),
+        style: const TextStyle(
+          fontSize: 24.0,
+          fontWeight: FontWeight.bold,
+          color: Colors.white, // Change text color to black
+        ),
+      ),
+      actions: [
+        IconButton(
+          icon: const Icon(Icons.camera_alt, color: Colors.white),
+          onPressed: () {
+            // Add functionality here
+          },
+        ),
+      ],
     );
   }
 }
