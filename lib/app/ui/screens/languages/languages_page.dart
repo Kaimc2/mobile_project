@@ -20,9 +20,9 @@ class LanguagesPage extends StatelessWidget {
   PreferredSizeWidget buildAppBar(BuildContext context) {
     return AppBar(
       backgroundColor: const Color(0xFF212121),
-      title: const Text(
-        'Languages',
-        style: TextStyle(
+      title: Text(
+        tr('tile.title.languages'),
+        style: const TextStyle(
           fontSize: 18.0,
           fontWeight: FontWeight.bold,
           color: Colors.white,

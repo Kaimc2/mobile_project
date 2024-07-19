@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile_project/app/controllers/sp_controller/landing_page_controller.dart';
@@ -88,33 +89,33 @@ class LandingPage extends StatelessWidget {
 
   List<BottomNavigationBarItem> buildBottomNavigationBarItems() {
     return [
-      const BottomNavigationBarItem(
-        icon: Icon(
+      BottomNavigationBarItem(
+        icon: const Icon(
           Icons.home_outlined,
         ),
-        label: 'Home',
-        backgroundColor: Color.fromRGBO(36, 54, 101, 1.0),
+        label: tr('home'),
+        backgroundColor: const Color.fromRGBO(36, 54, 101, 1.0),
       ),
-      const BottomNavigationBarItem(
-        icon: Icon(
+      BottomNavigationBarItem(
+        icon: const Icon(
           Icons.search_rounded,
         ),
-        label: 'Explore',
-        backgroundColor: Color.fromRGBO(36, 54, 101, 1.0),
+        label: tr('explore'),
+        backgroundColor: const Color.fromRGBO(36, 54, 101, 1.0),
       ),
-      const BottomNavigationBarItem(
-        icon: Icon(
+      BottomNavigationBarItem(
+        icon: const Icon(
           Icons.library_music_rounded,
         ),
-        label: 'Your Library',
-        backgroundColor: Color.fromRGBO(36, 54, 101, 1.0),
+        label: tr('title.your_library'),
+        backgroundColor: const Color.fromRGBO(36, 54, 101, 1.0),
       ),
-      const BottomNavigationBarItem(
-        icon: Icon(
+      BottomNavigationBarItem(
+        icon: const Icon(
           Icons.settings,
         ),
-        label: 'Settings',
-        backgroundColor: Color.fromRGBO(36, 54, 101, 1.0),
+        label: tr('title.settings'),
+        backgroundColor: const Color.fromRGBO(36, 54, 101, 1.0),
       ),
     ];
   }
