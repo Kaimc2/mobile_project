@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mobile_project/app/controllers/sp_controller/your_library_controller.dart';
 
 class YourLibraryUtils extends StatelessWidget {
@@ -18,17 +19,24 @@ class YourLibraryUtils extends StatelessWidget {
           onTap: () {
             controller.openRecentSortBottomSheet();
           },
-          child: const Row(
+          child: Row(
             children: [
-              Icon(Icons.swap_vert),
-              SizedBox(width: 8),
-              Text(
-                'Recent',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 18.0,
-                ),
-              ),
+              const Icon(Icons.swap_vert),
+              const SizedBox(width: 8),
+              Obx(() {
+                return Text(
+                  controller.selectedSortOption.value == SortOptions.recents
+                      ? 'Recents'
+                      : controller.selectedSortOption.value ==
+                              SortOptions.alphabetical
+                          ? 'Alphabetical'
+                          : 'Creator',
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 18.0,
+                  ),
+                );
+              }),
             ],
           ),
         ),

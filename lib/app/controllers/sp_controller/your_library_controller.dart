@@ -70,24 +70,25 @@ class YourLibraryController extends GetxController {
 
   void sortLibrary(SortOptions sortOption) {
     selectedSortOption.value = sortOption;
-    List<MusicModel> sortedList;
+    List<MusicModel> sortedList = List.from(yourLibraryDatas);
+
     switch (sortOption) {
       case SortOptions.recents:
-        sortedList = yourLibraryDatas.toList();
+        // Assuming the list is already sorted by recents initially
         break;
       case SortOptions.recentlyAdded:
-        sortedList = yourLibraryDatas.toList();
+        // Add your logic for recently added sorting if applicable
+        // Example: sortedList.sort((a, b) => a.addedDate.compareTo(b.addedDate));
         break;
       case SortOptions.alphabetical:
-        sortedList = yourLibraryDatas.toList()
-          ..sort((a, b) => a.name.compareTo(b.name));
+        sortedList.sort((a, b) => a.name.compareTo(b.name));
         break;
       case SortOptions.creator:
-        sortedList = yourLibraryDatas.toList()
-          ..sort((a, b) => a.author!.compareTo(b.author!));
+        sortedList.sort((a, b) => a.author!.compareTo(b.author!));
         break;
     }
-    yourLibraryDatas.value = sortedList;
+
+    yourLibraryDatas.assignAll(sortedList);
   }
 
   void openRecentSortBottomSheet() {
@@ -154,25 +155,25 @@ class YourLibraryController extends GetxController {
       isScrollControlled: true,
     );
   }
-}
 
-Widget _buildSortOptionTile(SortOptions option, String title) {
-  final YourLibraryController controller = Get.find();
-  final bool isSelected = controller.selectedSortOption.value == option;
+  Widget _buildSortOptionTile(SortOptions option, String title) {
+    final bool isSelected = selectedSortOption.value == option;
 
-  return ListTile(
-    contentPadding: EdgeInsets.zero,
-    onTap: () {
-      controller.sortLibrary(option);
-      Get.back();
-    },
-    title: Text(
-      title,
-      style: TextStyle(
-        color: isSelected ? const Color(0xFF1DB954) : Colors.white,
-        fontSize: 18.0,
+    return ListTile(
+      contentPadding: EdgeInsets.zero,
+      onTap: () {
+        sortLibrary(option);
+        Get.back();
+      },
+      title: Text(
+        title,
+        style: TextStyle(
+          color: isSelected ? const Color(0xFF1DB954) : Colors.white,
+          fontSize: 18.0,
+        ),
       ),
-    ),
-    trailing: isSelected ? const Icon(Icons.check, color: Colors.green) : null,
-  );
+      trailing:
+          isSelected ? const Icon(Icons.check, color: Colors.green) : null,
+    );
+  }
 }

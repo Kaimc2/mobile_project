@@ -16,15 +16,20 @@ class Artist extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         ClipOval(
-          child: Image.network(
-            imageUrl,
-            width: 150, // Specify the width for the image
-            height: 150, // Specify the height for the image
-            fit: BoxFit.cover, // Cover the entire widget area
-          ),
-        ),
-        const SizedBox(
-            height: 10), // Add some space between the image and the name
+            child: imageUrl.endsWith('.jpg')
+                ? Image.asset(
+                    imageUrl,
+                    width: 150,
+                    height: 150,
+                    fit: BoxFit.cover, // Cover the entire widget area
+                  )
+                : Image.network(
+                    imageUrl,
+                    width: 150,
+                    height: 150,
+                    fit: BoxFit.cover, // Cover the entire widget area
+                  )),
+        const SizedBox(height: 10),
         Text(name,
             style: const TextStyle(fontSize: 18)), // Display the artist's name
       ],

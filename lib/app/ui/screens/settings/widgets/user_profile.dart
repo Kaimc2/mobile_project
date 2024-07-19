@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class UserProfile extends StatelessWidget {
@@ -46,9 +47,9 @@ class UserProfile extends StatelessWidget {
             fontSize: 22.0,
           ),
         ),
-        const Text(
-          'View Profile',
-          style: TextStyle(
+        Text(
+          tr('button.view_profile'),
+          style: const TextStyle(
             color: Colors.white,
             fontSize: 16.0,
           ),

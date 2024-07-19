@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile_project/app/controllers/sp_controller/about_us_controller.dart';
@@ -20,9 +21,9 @@ class AboutUsPage extends StatelessWidget {
   PreferredSizeWidget buildAppBar(BuildContext context) {
     return AppBar(
       backgroundColor: const Color(0xFF212121),
-      title: const Text(
-        'About Us',
-        style: TextStyle(
+      title: Text(
+        tr('tile.title.about_us'),
+        style: const TextStyle(
             fontSize: 18.0, fontWeight: FontWeight.bold, color: Colors.white),
       ),
     );
@@ -33,11 +34,11 @@ class AboutUsPage extends StatelessWidget {
       slivers: <Widget>[
         ...buildGridSection(
           items: aboutUsController.lecturers,
-          sectionTitle: 'Lecturers',
+          sectionTitle: tr('section.title.lecturers'),
         ),
         ...buildGridSection(
           items: aboutUsController.artists,
-          sectionTitle: 'Team Members',
+          sectionTitle: tr('section.title.team_members'),
         ),
       ],
     );
