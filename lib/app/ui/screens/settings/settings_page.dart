@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mobile_project/app/controllers/sp_controller/settings_controller.dart';
 import 'package:mobile_project/app/controllers/sp_controller/user_controller.dart';
-import 'package:mobile_project/app/ui/screens/settings/widgets/dark_mode_tile.dart';
 import 'package:mobile_project/app/ui/screens/settings/widgets/log_out_button.dart';
 import 'package:mobile_project/app/ui/screens/settings/widgets/user_profile.dart';
 
@@ -50,9 +49,9 @@ class SettingsPage extends StatelessWidget {
           title: 'Languages',
           onTap: () => Get.toNamed('/languages'),
         ),
-        const DarkModeTile(
-          title: 'Dark Mode',
-        ),
+        // const DarkModeTile(
+        //   title: 'Dark Mode',
+        // ),
         buildListile(
           title: 'About Us',
           onTap: () => Get.toNamed('/about-us'),

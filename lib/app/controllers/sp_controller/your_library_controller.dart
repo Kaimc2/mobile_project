@@ -14,30 +14,26 @@ class YourLibraryController extends GetxController {
     return [
       MusicModel(
         id: '1',
-        imageUrl: 'assets/album_cover/kendrick_cover.jpg',
-        name: 'The Best of Me',
-        type: 'Album',
+        imageUrl:
+            'https://upload.wikimedia.org/wikipedia/en/6/61/Kendrick_Lamar_-_Not_Like_Us.png',
+        name: 'Not like us',
+        type: 'Playlists',
         author: 'Kendrick Lamar',
       ),
       MusicModel(
         id: '2',
-        imageUrl: 'assets/album_cover/kendrick_cover.jpg',
+        imageUrl:
+            'https://media.pitchfork.com/photos/659d9b69c6f7f7f715b07416/master/pass/21-Savage-American-Dream.jpg',
         name: 'Alot',
-        type: 'Album',
+        type: 'Playlists',
         author: '21 Savage',
       ),
       MusicModel(
         id: '3',
-        imageUrl: 'assets/album_cover/kendrick_cover.jpg',
+        imageUrl:
+            'https://i.scdn.co/image/ab67616d0000b273c91ffc9b512057a66087b98e',
         name: 'Skull 2',
-        type: 'Album',
-        author: 'Mann Vanda',
-      ),
-      MusicModel(
-        id: '4',
-        imageUrl: 'assets/album_cover/kendrick_cover.jpg',
-        name: 'Skull 1',
-        type: 'Album',
+        type: 'Playlists',
         author: 'Mann Vanda',
       ),
     ];

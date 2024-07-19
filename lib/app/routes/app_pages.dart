@@ -3,6 +3,7 @@ import 'package:mobile_project/app/bindings/about_us_binding.dart';
 import 'package:mobile_project/app/bindings/account_binding.dart';
 import 'package:mobile_project/app/bindings/home_binding.dart';
 import 'package:mobile_project/app/bindings/languages_binding.dart';
+import 'package:mobile_project/app/bindings/liked_songs_controller.dart';
 import 'package:mobile_project/app/bindings/search_binding.dart';
 import 'package:mobile_project/app/bindings/settings_binding.dart';
 import 'package:mobile_project/app/bindings/your_library_binding.dart';
@@ -11,6 +12,7 @@ import 'package:mobile_project/app/ui/screens/account/account_page.dart';
 import 'package:mobile_project/app/ui/screens/home/home_page.dart';
 import 'package:mobile_project/app/ui/screens/landing/landing_page.dart';
 import 'package:mobile_project/app/ui/screens/languages/languages_page.dart';
+import 'package:mobile_project/app/ui/screens/liked_songs/liked_songs_page.dart';
 import 'package:mobile_project/app/ui/screens/search/search_page.dart';
 import 'package:mobile_project/app/ui/screens/settings/settings_page.dart';
 import 'package:mobile_project/app/ui/screens/your_library/your_library_page.dart';
@@ -57,6 +59,11 @@ class AppPages {
             name: '/languages',
             page: () => const LanguagesPage(),
             binding: LanguagesBinding(),
+          ),
+          GetPage(
+            name: '/languages',
+            page: () => const LikedSongsPage(),
+            binding: LikedSongsBinding(),
           ),
         ],
       ),

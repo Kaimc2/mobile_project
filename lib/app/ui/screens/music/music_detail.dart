@@ -6,9 +6,9 @@ import 'package:mobile_project/app/data/models/sp_model/music_model.dart';
 import 'package:mobile_project/app/ui/screens/music/row.dart';
 
 class MusicDetail extends StatefulWidget {
-  final int tabIndex;
+  final int? tabIndex;
 
-  const MusicDetail({super.key, required this.tabIndex});
+  const MusicDetail({super.key, this.tabIndex});
 
   @override
   State<MusicDetail> createState() => _MusicDetailState();
@@ -29,7 +29,7 @@ class _MusicDetailState extends State<MusicDetail> {
             _scrollController.offset > (310 - kToolbarHeight);
       });
     });
-    fromIndex = widget.tabIndex;
+    fromIndex = widget.tabIndex ?? 0;
   }
 
   @override
@@ -65,7 +65,7 @@ class _MusicDetailState extends State<MusicDetail> {
                 splashColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 onPressed: () {
-                  Get.offAllNamed('/', arguments: {'tabIndex': fromIndex});
+                  Get.back();
                 },
                 icon: const Icon(
                   Icons.chevron_left_outlined,
@@ -73,7 +73,7 @@ class _MusicDetailState extends State<MusicDetail> {
                   size: 35,
                 ),
               ),
-              expandedHeight: 310,
+              expandedHeight: 280,
               flexibleSpace: LayoutBuilder(
                 builder: (BuildContext context, BoxConstraints constraints) {
                   final double height = constraints.biggest.height;
@@ -81,7 +81,7 @@ class _MusicDetailState extends State<MusicDetail> {
 
                   return FlexibleSpaceBar(
                     titlePadding: EdgeInsets.only(
-                      top: percentage > 0.5 ? 110.0 : 20.0,
+                      top: percentage > 0.5 ? 150.0 : 20.0,
                       left: 20.0,
                       right: 20.0,
                       bottom: percentage > 0.5 ? 20.0 : 20.0,
@@ -91,10 +91,11 @@ class _MusicDetailState extends State<MusicDetail> {
                         ? Center(
                             child: AnimatedOpacity(
                               duration: const Duration(milliseconds: 200),
-                              opacity: percentage,
+                              opacity: percentage > 0.5 ? 1.0 : 0.0,
                               child: Image.network(
                                 'https://hololive.hololivepro.com/wp-content/uploads/2021/08/ina_violet_jk-e1661929568573.png',
-                                width: 270,
+                                width: 150,
+                                height: 150,
                               ),
                             ),
                           )

@@ -5,10 +5,12 @@ class SpChip extends StatelessWidget {
     super.key,
     required this.label,
     required this.backgroundColor,
+    this.onTap,
   });
 
   final String label;
   final Color backgroundColor;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +24,7 @@ class SpChip extends StatelessWidget {
         style: const TextStyle(color: Colors.white),
       ),
       backgroundColor: backgroundColor,
+      autofocus: true,
     );
   }
 }
