@@ -32,7 +32,7 @@ class PodcastCard extends StatelessWidget {
         Get.to(() => const PodcastDetail());
       },
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 0),
+        padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 12),
         child: Container(
           width: 400,
           height: 475,
@@ -107,27 +107,29 @@ class PodcastCard extends StatelessWidget {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: 320),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                title,
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-                style: const TextStyle(
-                  fontSize: 20,
+        Expanded(
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 320),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  title,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(
+                    fontSize: 20,
+                  ),
                 ),
-              ),
-              const SizedBox(height: 8),
-              Text(
-                '${tr('episodes')} · $podcastName',
-                style: TextStyle(
-                  color: const Color(0x00b3b3b3).withOpacity(0.8),
+                const SizedBox(height: 8),
+                Text(
+                  '${tr('episodes')} · $podcastName',
+                  style: TextStyle(
+                    color: const Color(0x00b3b3b3).withOpacity(0.8),
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
         IconButton(
